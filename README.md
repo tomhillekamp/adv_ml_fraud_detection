@@ -1,8 +1,9 @@
-# [Your Project Title Here]
+# Fraud Detection
+by Alexander Neumann and Tom Hillekamp
 
 ## Repository Link
 
-[https://github.com/your_username/your_project_name]
+[https://github.com/tomhillekamp/adv_ml_fraud_detection]
 
 ## Description
 
@@ -10,7 +11,7 @@
 
 ### Task Type
 
-[Image Classification / Chatbot / Regression / Clustering / Other]
+Classification
 
 ### Results Summary
 
