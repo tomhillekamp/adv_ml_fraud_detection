@@ -5,20 +5,58 @@
 ## Baseline Model Results
 
 ### Model Selection
-- **Baseline Model Type:** [e.g., Random Forest, Logistic Regression, Linear Regression, Naive Bayes, etc.]
-- **Rationale:** [Brief explanation of why this model was chosen as baseline]
+- **Baseline Model Type:** Simple Neural Network with Linear Layers and ReLU
+- **Rationale:** Similar to classification layers in a potential future model 
+
+```
+model = nn.Sequential(
+            nn.Linear(N_INPUT_FEATURES, 16), 
+            nn.ReLU(),
+            nn.Linear(16, 8), nn.ReLU(),
+            nn.Dropout(DROPOUT_RATE),
+            nn.Linear(8, 1),
+        )
+```
 
 ### Model Performance
-- **Evaluation Metric:** [e.g., Accuracy, F1-Score, Precision, Recall, MSE, MAE, R², etc.]
-- **Performance Score:** [e.g., 85% accuracy, F1-score of 0.78, MSE of 0.15]
-- **Cross-Validation Score:** [Mean and standard deviation of CV scores, e.g., 0.82 ± 0.03]
+- **Evaluation Metric:** BCEWithLogitsLoss, PR-AUC
+- **Performance Score:** 0.0486 PR-AUC (Best Score)
+- **Cross-Validation Score:**
+
+    - **Fold 1/5**
+        Fold 1 Val PR-AUC: 0.0464
+
+    - **Fold 2/5**
+        Fold 2 Val PR-AUC: 0.0408
+
+    - **Fold 3/5**
+        Fold 3 Val PR-AUC: 0.0533
+
+    - **Fold 4/5**
+        Fold 4 Val PR-AUC: 0.0521
+
+    - **Fold 5/5**
+        Fold 5 Val PR-AUC: 0.0711
+
+    **++ Mean Val PR-AUC: 0.0528 (+/- 0.0102) ++**
+
+    **++ Test Set PR-AUC (best model): 0.0486 ++**
 
 ### Evaluation Methodology
-- **Data Split:** [Train/Validation/Test split ratios, e.g., 70/15/15]
-- **Evaluation Metrics:** [List all metrics used and justify why they are appropriate for this problem]
+- **Data Split:** Train/Validation/Test - 60/20/20
+- **Evaluation Metrics:**
+    - PR-AUC: This metric is very useful for properly evaluating a model’s performance on the minority class in severely imbalanced classification problems.
+    - BCEWithLogitsLoss: used in binary classification problems
 
 ### Metric Practical Relevance
-[Explain the practical relevance and business impact of each chosen evaluation metric. How do these metrics translate to real-world performance and decision-making? What do the metric values mean in the context of your specific problem domain?]
+The higher the PR-AUC, the better the model is at correctly detecting the minority class, in our case the fraudulent basket samples.
+
+For comparison, from the Challenge Data description:
+> Benchmark 1: PR-AUC = 0,017. This first benchmark is a naive one and is based on a baseline model which randomly predicts probabilities between 0 and 1.
+
+> Benchmark 2: PR-AUC = 0,14. This second benchmark is based on our current solution where several pre-processing steps are applied, and a fine-tuned Machine Learning model is used to predict fraud risk.
+
+**--> Our baseline model falls inbetween these reference values.**
 
 ## Next Steps
 This baseline model serves as a reference point for evaluating more sophisticated models in the [Model Definition and Evaluation](../3_Model/README.md) phase.
