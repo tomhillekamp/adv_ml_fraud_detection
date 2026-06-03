@@ -5,14 +5,15 @@
 ## Baseline Model Results
 
 ### Model Selection
-- **Baseline Model Type:** Simple Neural Network with Linear Layers and ReLU
+- **Baseline Model Type:** Simple Neural Network with Linear Layers, ReLU and Dropout
 - **Rationale:** Similar to classification layers in a potential future model 
 
 ```
 model = nn.Sequential(
             nn.Linear(N_INPUT_FEATURES, 16), 
             nn.ReLU(),
-            nn.Linear(16, 8), nn.ReLU(),
+            nn.Linear(16, 8), 
+            nn.ReLU(),
             nn.Dropout(DROPOUT_RATE),
             nn.Linear(8, 1),
         )
@@ -20,27 +21,28 @@ model = nn.Sequential(
 
 ### Model Performance
 - **Evaluation Metric:** BCEWithLogitsLoss, PR-AUC
-- **Performance Score:** 0.0486 PR-AUC (Best Score)
+- **Performance Score:** 0.0510 PR-AUC (Best Score)
 - **Cross-Validation Score:**
 
     - **Fold 1/5**
         Fold 1 Val PR-AUC: 0.0464
 
     - **Fold 2/5**
-        Fold 2 Val PR-AUC: 0.0408
+        Fold 2 Val PR-AUC: 0.0418
 
     - **Fold 3/5**
-        Fold 3 Val PR-AUC: 0.0533
+        Fold 3 Val PR-AUC: 0.0595
 
     - **Fold 4/5**
-        Fold 4 Val PR-AUC: 0.0521
+        Fold 4 Val PR-AUC: 0.0571
 
     - **Fold 5/5**
-        Fold 5 Val PR-AUC: 0.0711
+        Fold 5 Val PR-AUC: 0.0669
 
-    **++ Mean Val PR-AUC: 0.0528 (+/- 0.0102) ++**
+    **++ Mean Val PR-AUC: 0.0543 (+/- 0.0091) ++**
 
-    **++ Test Set PR-AUC (best model): 0.0486 ++**
+    **++ Test Set (split from training data) PR-AUC of best baseline model: 0.0510 ++**
+    **++ Test Set (public leaderboard) PR-AUC of best baseline model:  ++**
 
 ### Evaluation Methodology
 - **Data Split:** Train/Validation/Test - 60/20/20
