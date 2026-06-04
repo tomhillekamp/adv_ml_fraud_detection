@@ -42,7 +42,7 @@ model = nn.Sequential(
     **++ Mean Val PR-AUC: 0.0543 (+/- 0.0091) ++**
 
     **++ Test Set (split from training data) PR-AUC of best baseline model: 0.0510 ++**
-    **++ Test Set (public leaderboard) PR-AUC of best baseline model:  ++**
+    **++ Test Set (public leaderboard on ChallengeData) PR-AUC of best baseline model: 0.0623 ++**
 
 ### Evaluation Methodology
 - **Data Split:** Train/Validation/Test - 60/20/20
