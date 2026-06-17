@@ -6,7 +6,7 @@ by Alexander Neumann and Tom Hillekamp
 [https://github.com/tomhillekamp/adv_ml_fraud_detection]
 
 ## Description
-The challenge is to build a classification model that detects fraudulent orders based on basket data. The dataset has around 116,000 observations with info about the items in each basket (category, price, manufacturer, model, quantity), but only about 1.4% of cases are actually fraud, so it's a heavily imbalanced classification problem. Performance is evaluated using PR-AUC.
+Our goal is to build a classification model that detects fraudulent orders based on basket data. The dataset has around 116,000 observations with info about the items in each basket (category, price, manufacturer, model, quantity), but only about 1.4% of cases are actually fraud, so it's a heavily imbalanced classification problem. Performance is evaluated using PR-AUC.
 
 Inspired by https://challengedata.ens.fr/challenges/104
 
