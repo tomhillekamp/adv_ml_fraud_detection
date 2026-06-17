@@ -6,30 +6,37 @@ by Alexander Neumann and Tom Hillekamp
 [https://github.com/tomhillekamp/adv_ml_fraud_detection]
 
 ## Description
+The challenge is to build a classification model that detects fraudulent orders based on basket data. The dataset has around 116,000 observations with info about the items in each basket (category, price, manufacturer, model, quantity), but only about 1.4% of cases are actually fraud, so it's a heavily imbalanced classification problem. Performance is evaluated using PR-AUC.
 
-[Short project description here. Briefly summarize the problem you are trying to solve and the approach you're taking.]
+Inspired by https://challengedata.ens.fr/challenges/104
+
 
 ### Task Type
 
-Classification
+Classification - Fraud/Not Fraud
 
 ### Results Summary
 
 #### Best Model Performance
-- **Best Model:** [Name and type of the best-performing model"]
-- **Evaluation Metric:** [Primary metric used, e.g., Accuracy, F1-Score, MSE, MAE]
-- **Final Performance:** [Best score achieved, e.g., 95% accuracy, F1-score of 0.87, MSE of 0.12]
+- **Best Model:** XGBoost
+- **Evaluation Metric:** PR-AUC
+- **Final Performance:** 0.1895 on Public Test Set
+
+#### Second Best Performance
+- **Second Best Model:** ANN with Embeddings + Numerical Features
+- **Evaluation Metric:** PR-AUC
+- **Final Performance:** 0.1374 on Public Test Set
 
 #### Model Comparison
-- **Baseline Performance:** [Baseline model performance for comparison]
-- **Improvement Over Baseline:** [Quantitative improvement, e.g., "+12% accuracy", "25% reduction in MSE"]
-- **Best Alternative Model:** [Second-best model and its performance]
+- **Baseline Performance:** 0.0623 on Public Test Set
+- **Improvement Over Baseline:** ~204% improvement
+- **Best Alternative Model:** ~120% improvement
 
 #### Key Insights
-- **Most Important Features:** [Top 3-5 features that drive model performance]
-- **Model Strengths:** [What the model does well]
-- **Model Limitations:** [Known limitations and failure cases]
-- **Business Impact:** [Practical implications of the model performance]
+- **Most Important Features:** Categorical Features on Embedding Model; Combination of Categorical + Numerical for XGBoost
+- **Model Strengths:** Embedding model is able to extract meaning/relationships of the categorical features
+- **Model Limitations:** Reliant on class ratio of training data 
+- **Business Impact:** Model can predict fraud cases based on basket data
 
 ## Documentation
 
