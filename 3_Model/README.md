@@ -19,4 +19,4 @@ The notebook below (**model_definition_evaluation.ipynb**) summarizes everything
 
 It also links to other important notebooks.
 
-**[Notebook](model_definition_evaluation)**
+**[Notebook](model_definition_evaluation.ipynb)**
